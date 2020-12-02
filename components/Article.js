@@ -89,6 +89,16 @@ const data = [
   }
 ];
 
+// New newsfeed article
+data.push({ 
+  title: "Don't Read This Article",
+  date: "Any Day",
+  firstParagraph: "I can't believe that you're reading this... I just told you not too!",
+  secondParagraph: "Final Warning, I see you trying to sneak a peak at the second paragraph",
+  thirdParagraph: "Well you made it to the end, enjoy your disappointment" });
+
+// article container handle
+
 const newsFeed = document.querySelector('.articles');
 
   // Step 1: Write a component called 'articleMaker' to create an article.
@@ -105,11 +115,13 @@ const newsFeed = document.querySelector('.articles');
 
     // Elements
     const article = document.createElement('div');
+    article.classList.add('article');
 
     const articleTitle = document.createElement('h2');
     articleTitle.textContent = title;
 
     const articleDate = document.createElement('p');
+    articleDate.classList.add('date');
     articleDate.textContent = date;
 
     const p1 = document.createElement('p');
@@ -122,10 +134,12 @@ const newsFeed = document.querySelector('.articles');
     p3.textContent = thirdParagraph;
 
     const span = document.createElement('span');
+    span.textContent = "+";
+    span.classList.add('expandButton')
     span.addEventListener('click', function () {
       article.classList.toggle("article-open")
     })
-    span.textContent = "+";
+    
 
     // <div class="article">
     //   <h2>{title of the article}</h2>
@@ -135,6 +149,7 @@ const newsFeed = document.querySelector('.articles');
 
     //   <span class="expandButton">+</span>
     // </div>
+    
 
     // Build structure
     article.append(articleTitle)
@@ -168,5 +183,4 @@ const newsFeed = document.querySelector('.articles');
   // Step 5: Try adding new article object to the data array. Make sure it is in the same format as the others.
   // Refresh the page to see the new article.
 
-  data.push({ "Don't read this article", "Any Day","I can't believe that you're reading this... I just told you not too!","Final Warning, I see you trying to sneak a peak at the second paragraph","Well you made it to the end, enjoy your disappointment" });
-
+ 
